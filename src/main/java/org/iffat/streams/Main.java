@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -42,11 +43,14 @@ public class Main {
         }
         System.out.println("-".repeat(90));
 
-        bingoPool.stream()
+        var tempStream = bingoPool.stream()
                 .limit(15)
                 .filter(s -> s.indexOf('G') == 0 || s.indexOf('O') == 0)
                 .map(s -> s.charAt(0) + "-" + s.substring(1))
-                .sorted()
-                .forEach(s -> System.out.print(s + " "));
+                .sorted();
+        //.forEach(s -> System.out.print(s + " "));
+        tempStream.forEach(s -> System.out.print(s + " "));
+        System.out.println();
+        System.out.println("-".repeat(90));
     }
 }
