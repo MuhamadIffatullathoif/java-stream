@@ -123,7 +123,7 @@ public class Student {
         );
 
         for (Course course : courses) {
-            int lecture = random.nextInt(1, course.lectureCount());
+            int lecture = random.nextInt(30, course.lectureCount());
             int year = random.nextInt(student.getYearEnrolled(), maxYear);
             int month = random.nextInt(1, 13);
             if (year == (maxYear - 1)) {
